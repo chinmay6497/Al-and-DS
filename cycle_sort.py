@@ -7,7 +7,7 @@ def cycle_sort(arr):
         for j in range(i+1,n):
             if arr[j] < item:
                 pos +=1
-        arr[pos],item = arr[pos],item
+        arr[pos],item = item,arr[pos]
         while pos != i:
             pos = i
             for j in range(i+1,n):
