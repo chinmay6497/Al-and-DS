@@ -1,29 +1,17 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-// struct Po
-// {
-//     int x;
-//     int y;
-// };
-
-// int main()
-// {
-//     struct Po p;
-//     p.x = 10;
-//     p.y = 20;
-//     cout <<p.x <<" " << p.y << endl;
-// }
-
-struct student
+struct Point
 {
-    int rollno;
-    string name;
-    string address;
+    int x;
+    int y;
 };
 
 int main()
 {
-    student s = {101,"XYZ","ABC"};
-    cout << s.rollno << " " << s.name;
+    Point p = {10,20};
+    Point *ptr = &p;
+    cout << ptr->x << " " <<p.x << " ";
+    ptr->x = 30;
+    cout << ptr->x;
 }
