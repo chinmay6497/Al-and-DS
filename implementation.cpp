@@ -1,29 +1,51 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void add_ele(vector<int> adj[],int n ,int m)
+struct mystack
 {
-    adj[n].push_back(m);
-    adj[m].push_back(n);
-}
-
-void print(vector<int> adj[], int v)
-{
-    for (int i=0; i< v ;i++){
-        for (auto x : adj[i])
-            cout << x << " ";
-        cout << "\n";
+    int cap;
+    int *arr;
+    int top;
+    mystack(int c){
+        cap = c;
+        arr = new int[cap];
+        top = -1;
     }
-}
+
+    void push(int x){
+        top++;
+        arr[top] = x;
+    }
+
+    int pop(){
+        int res = arr[top];
+        top--;
+        return res;
+    }
+
+    int peek(){
+        return arr[top];
+    }
+
+    int size(){
+        return top + 1;
+    }
+
+    bool is_empty(){
+        return (top == -1);
+    }
+};
 
 int main()
 {
-    int v = 4;
-    vector <int> adj[v];
-    add_ele(adj,0,1);
-    add_ele(adj,0,2);
-    add_ele(adj,1,2);
-    add_ele(adj,1,3);
-    print(adj,v);
+    mystack s(5);
+    s.push(1);
+    s.push(3);
+    s.push(7);
+    cout << s.pop() << endl;
+    cout << s.peek() << endl;
+    s.push(11);
+    cout << s.size() << endl;
+    cout << s.is_empty();
     return 0;
 }
